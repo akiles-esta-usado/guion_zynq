@@ -1,6 +1,6 @@
 # Introducción
 
-[1_introduccion](1_introduccion)
+[1_introduccion](1_introduccion.md)
 
 # Indice
 
