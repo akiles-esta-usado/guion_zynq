@@ -1,3 +1,0 @@
-# Programmable Logic
-
-

@@ -26,9 +26,7 @@ Con AXI se pueden definir 2 tipos de interfaces, pero antes de hablar de ello es
 una transacción es el proceso por el cual los datos son movidos entre los módulos y puede ser para la lectura o escritura de
 datos.
 
-En una transacción existen 2 tipos de participantes. El módulo que inicia las transacciones es llamado Maestro, y el módulo
-objetivo y quien genera la respuesta se denomina Esclavo. dos módulos conectados con una interfaz AXI siempre mantendrán su
-relación de Maestro esclavo
+En una transacción existen 2 tipos de participantes. El módulo que inicia las transacciones es llamado Maestro, y el módulo objetivo y quien genera la respuesta se denomina Esclavo. dos módulos conectados con una interfaz AXI siempre mantendrán su relación de Maestro esclavo
 
 Un ejemplo sencillo, la CPU es el maestro y un bloque de memoria es el esclavo.
 La CPU puede iniciar transacciones de lectura y escritura, y la memoria realiza la operación y responde.
@@ -54,27 +52,32 @@ En AXI existen 2 tipos de interfaces, la Memory Mapped o MM y la Stream o S
 
 
 
-## Señales del canal WRITE DATA
-	Cuando se requiere leer datos, el maestro envia una señal de control junto a la direccion de los datos que quiere leer.
-	Entonces el módulo esclavo entregará los datos requeridos.
+# Guión Antiguo
 
-	Si se desea escribir en el esclavo, se debe enviar la direccion donde se desea escribir seguido de los datos, finalmente
-	el esclavo indicará al maestro si la operación fué un éxito o un fracaso.
+
+## Señales del canal WRITE DATA
+Cuando se requiere leer datos, el maestro envia una señal de control junto a la direccion de los datos que quiere leer.
+
+Entonces el módulo esclavo entregará los datos requeridos.
+
+Si se desea escribir en el esclavo, se debe enviar la direccion donde se desea escribir seguido de los datos, finalmente
+
+el esclavo indicará al maestro si la operación fué un éxito o un fracaso.
 
 * INFORMACIÓN ANTIGUA
 
-# El guión
-
 ### AXI Interconnect
+El bloque AXI Interconnect es un bloque esencial para el subsistema de comunicación, aquí se crean configuraciones
 
-Tomas:
-	El bloque AXI Interconnect es un bloque esencial para el subsistema de comunicación, aquí se crean configuraciones
-	extensibles entre varios maestros y esclavos, y se asigna una dirección a cada integrante para que así un maestro pueda
-	comunicarse con un esclavo independiente de su ubicación en la red.
+extensibles entre varios maestros y esclavos, y se asigna una dirección a cada integrante para que así un maestro pueda
 
-	Interconnect puede tener hasta 20 maestros y 20 esclavos, y puede comunicar canales de distinto ancho entre ellos. Tambien
-	mantiene compatibilidad entre versiones, el PS suele trabajar con AXI3 y el PL con AXI4, sin embargo no hay
-	problemas de comunicación entre ellos.
+comunicarse con un esclavo independiente de su ubicación en la red.
+
+Interconnect puede tener hasta 20 maestros y 20 esclavos, y puede comunicar canales de distinto ancho entre ellos. Tambien
+
+mantiene compatibilidad entre versiones, el PS suele trabajar con AXI3 y el PL con AXI4, sin embargo no hay
+
+problemas de comunicación entre ellos.
 
 
 ## Componentes de AXI Interconnect
@@ -93,14 +96,4 @@ en un instante de tiempo
 Finalmente el Crossbar permite una comunicación cruzzada entre maestros y esclavos.
 
 
-Por último pueden encadenar varios AXI Interconnect entre si para superar el límite de 20 esclavos a los que un maestro pudiera
-comunicarse
-
-
-
-
-
-
-
-
-
+Por último pueden encadenar varios AXI Interconnect entre si para superar el límite de 20 esclavos a los que un maestro pudiera comunicarse
